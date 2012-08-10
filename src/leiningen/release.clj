@@ -111,7 +111,7 @@
         (println "adding, committing and tagging project.clj")
         (scm! :add "project.clj")
         (scm! :commit "-m" (format "Release %s." release-version))
-        (scm! :tag (format "%s-%s" (:name project) release-version)))
+        (scm! :tag (format "%s" release-version)))
       (when-not (.exists (java.io.File. jar-file-name))
         (println "creating jar and pom files...")
         (sh! "lein" "jar")
