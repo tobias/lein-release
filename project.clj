@@ -1,5 +1,5 @@
-(defproject lein-release/lein-release "1.0.1-SNAPSHOT"
-  :description "Leiningen Release Plugin"
+(defproject org.clojars.ato/lein-release "1.0.1-SNAPSHOT"
+  :description "Leiningen Release Plugin (ato's fork)"
   :dev-dependencies [[swank-clojure "1.4.2"]]
   :eval-in :leiningen
   :lein-release {:deploy-via :clojars}
