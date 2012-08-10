@@ -3,7 +3,7 @@ h1. Leiningen Release Plug-in (ato's fork)
 Fork of "lein-release":https://github.com/relaynetwork/lein-release with a few tweaks for my preferences:
 
 * Commit messages are simplified:
-** @Release version 1.0.0.@
+** @Release 1.0.0.@
 ** @Bump version to 1.0.1-SNAPSHOT.@
 * SCM tag is just @1.0.0@ not @projectName-1.0.0@.
 * Excess linefeeds in shell output removed.
