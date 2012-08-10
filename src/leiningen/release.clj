@@ -28,8 +28,8 @@
 
 (defn sh! [& args]
   (let [res (apply sh/sh args)]
-    (.println System/out (:out res))
-    (.println System/err (:err res))
+    (.print System/out (:out res))
+    (.print System/err (:err res))
     (when-not (zero? (:exit res))
       (raise "Error: command failed %s => %s" args res))))
 
