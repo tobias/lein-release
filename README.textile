@@ -1,5 +1,13 @@
 h1. Leiningen Release Plug-in
 
+Fork of [lein-release](https://github.com/relaynetwork/lein-release) with a few tweaks for my preferences:
+
+* Commit messages are simplified:
+ - @Release version 1.0.0.@
+ - @Bump version to 1.0.1-SNAPSHOT.@
+* SCM tag is just @1.0.0@ not @projectName-1.0.0@.
+* Excess linefeeds in shell output removed.
+
 The release plug-in automatically manages your project's version and deploys the built artifact for you.
 
 The plug-in performs the following steps:
@@ -7,7 +15,7 @@ The plug-in performs the following steps:
 1. Modify the project.clj to drop the "-SNAPSHOT" suffix
 2. Add the project.clj to the SCM system
 3. Commit the project.clj to the SCM system
-4. Tag the project with @projectName-version@
+4. Tag the project with @version@
 5. If the project jar file does not exist, it builds it with @lein jar@ and @lein pom@
 6. Performs a Deploy (see the Deploy section below)
 7. Increments the project minor version number and re-adds the "-SNAPSHOT" suffix
