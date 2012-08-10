@@ -110,7 +110,7 @@
         (set-project-version! current-version release-version)
         (println "adding, committing and tagging project.clj")
         (scm! :add "project.clj")
-        (scm! :commit "-m" (format "lein-release plugin: preparing %s release" release-version))
+        (scm! :commit "-m" (format "Release %s." release-version))
         (scm! :tag (format "%s-%s" (:name project) release-version)))
       (when-not (.exists (java.io.File. jar-file-name))
         (println "creating jar and pom files...")
@@ -121,5 +121,5 @@
         (println (format "updating version %s => %s for next dev cycle" release-version next-dev-version))
         (set-project-version! release-version next-dev-version)
         (scm! :add "project.clj")
-        (scm! :commit "-m" (format "lein-release plugin: bumped version from %s to %s for next development cycle" release-version next-dev-version))))))
+        (scm! :commit "-m" (format "Bump version to %s." next-dev-version))))))
 
