@@ -81,7 +81,7 @@
     (sh! "lein" "install")
 
     :clojars
-    (sh! "scp" "pom.xml" project-jar "clojars@clojars.org:")
+    (sh! "lein" "deploy" "clojars")
 
     (raise "Error: unrecognized deploy strategy: %s" (detect-deployment-strategy))))
 

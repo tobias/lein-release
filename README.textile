@@ -1,4 +1,4 @@
-h1. Leiningen Release Plug-in (ato's fork)
+h1. Leiningen Release Plug-in (tcrawley's fork of ato's fork)
 
 Fork of "lein-release":https://github.com/relaynetwork/lein-release with a few tweaks for my preferences:
 
@@ -7,6 +7,7 @@ Fork of "lein-release":https://github.com/relaynetwork/lein-release with a few t
 ** @Bump version to 1.0.1-SNAPSHOT.@
 * SCM tag is just @1.0.0@ not @projectName-1.0.0@.
 * Excess linefeeds in shell output removed.
+* @:deploy-via :clojars@ uses @lein deploy clojars@ instead of scp
 
 The release plug-in automatically manages your project's version and deploys the built artifact for you.
 
