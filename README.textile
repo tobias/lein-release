@@ -8,6 +8,7 @@ Fork of "lein-release":https://github.com/relaynetwork/lein-release with a few t
 * SCM tag is just @1.0.0@ not @projectName-1.0.0@.
 * Excess linefeeds in shell output removed.
 * @:deploy-via :clojars@ uses @lein deploy clojars@ instead of scp
+* allow overriding released version via @$RELEASE_VERSION@ and next dev version with @$NEXT_DEV_VERSION@
 
 The release plug-in automatically manages your project's version and deploys the built artifact for you.
 

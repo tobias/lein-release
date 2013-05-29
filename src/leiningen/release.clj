@@ -101,8 +101,10 @@
 (defn release [project & args]
   (binding [config (or (:lein-release project) config)]
     (let [current-version  (get project :version)
-          release-version  (.replaceAll current-version "-SNAPSHOT" "")
-          next-dev-version (compute-next-development-version release-version)
+          release-version  (or (System/getenv "RELEASE_VERSION")
+                               (.replaceAll current-version "-SNAPSHOT" ""))
+          next-dev-version (or (System/getenv "NEXT_DEV_VERSION")
+                               (compute-next-development-version release-version))
           target-dir       (:target-path project (:target-dir project (:jar-dir project "."))) ; target-path for lein2, target-dir or jar-dir for lein1
           jar-file-name    (format "%s/%s-%s.jar" target-dir (:name project) release-version)]
       (when (is-snapshot? current-version)
