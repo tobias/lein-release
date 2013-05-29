@@ -1,4 +1,4 @@
-(defproject org.clojars.tcrawley/lein-release "1.0.3-SNAPSHOT"
+(defproject org.clojars.tcrawley/lein-release "1.0.3"
   :description "Leiningen Release Plugin (tcrawley's fork of ato's fork)"
   :url "https://github.com/ato/lein-release"
   :dev-dependencies [[swank-clojure "1.4.2"]]
