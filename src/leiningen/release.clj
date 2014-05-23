@@ -10,7 +10,7 @@
 
 (def ^:dynamic config {})
 
-(def *scm-systems*
+(def scm-systems
      {:git {:add    ["git" "add"]
             :tag    ["git" "tag"]
             :commit ["git" "commit"]
@@ -35,7 +35,7 @@
 
 (defn scm! [cmd & args]
   (let [scm   (detect-scm)
-        scm-cmd (get-in *scm-systems* [scm cmd])]
+        scm-cmd (get-in scm-systems [scm cmd])]
     (if-not scm-cmd
       (raise "No such SCM command: %s in %s" cmd scm))
     (apply sh! (concat scm-cmd args))))
@@ -124,4 +124,3 @@
         (set-project-version! release-version next-dev-version)
         (scm! :add "project.clj")
         (scm! :commit "-m" (format "Bump version to %s." next-dev-version))))))
-
