@@ -1,7 +1,8 @@
 (ns leiningen.release
   (:require
    [clojure.java.shell :as sh]
-   [clojure.string     :as string])
+   [clojure.string     :as string]
+   [leiningen.set-version :refer [set-version]])
   (:import
    [java.util.regex Pattern]))
 
@@ -109,9 +110,9 @@
           jar-file-name    (format "%s/%s-%s.jar" target-dir (:name project) release-version)]
       (when (is-snapshot? current-version)
         (println (format "setting project version %s => %s" current-version release-version))
-        (set-project-version! current-version release-version)
-        (println "adding, committing and tagging project.clj")
-        (scm! :add "project.clj")
+        (apply set-version project release-version args)
+        (println "adding, committing and tagging changes")
+        (scm! :add ".")
         (scm! :commit "-m" (format "Release %s." release-version)))
       (scm! :tag (format "%s" release-version))
       (when-not (.exists (java.io.File. jar-file-name))
